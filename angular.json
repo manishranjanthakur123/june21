@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "june21"
+    }
+  },
+  "defaultProject": "june21",
+  "cli": {
+    "analytics": "81bbaebe-4388-4a9a-9dc7-aa2b230025bb"
+  }
 }
