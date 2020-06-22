@@ -3,25 +3,28 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.11",
-    "@angular/common": "~9.1.11",
     "@angular/cli": "^9.1.9",
-    "@angular/compiler-cli": "^9.1.11",
+    "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
+    "@angular/compiler-cli": "^9.1.11",
     "@angular/core": "~9.1.11",
     "@angular/forms": "~9.1.11",
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
+    "express": "^4.17.1",
     "rxjs": "~6.5.5",
+    "save": "^2.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"
   },
