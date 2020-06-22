@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './app_auth/register/register.component';
 import { LoginComponent } from './app_auth/login/login.component';
-import { AuthService } from './services/auth/auth.service'
+import { AuthService } from './services/auth/auth.service';
+import { User } from './models/auth/user';
 
 @NgModule({
   declarations: [
