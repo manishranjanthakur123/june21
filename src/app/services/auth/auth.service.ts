@@ -10,8 +10,8 @@ import { User } from '../../models/auth/user'
   providedIn: 'root'
 })
 export class AuthService {
-  private _registerUrl = "http://127.0.0.1:8000/api/account/register";
-  private _loginUrl = "http://127.0.0.1:8000/api/account/login";
+  private _registerUrl = "http://manishranjan.pythonanywhere.com/api/account/register";
+  private _loginUrl = "http://manishranjan.pythonanywhere.com/api/account/login";
 
   constructor(private http: HttpClient) { }
 
