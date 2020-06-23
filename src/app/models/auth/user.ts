@@ -1,8 +1,8 @@
 export class User{
-    private email: string; 
-    private username: string; 
-    private password: string;
-    private token: string;
+    public email: string; 
+    public username: string; 
+    public password: string;
+    public token: string;
     constructor(){
         this.email = "";
         this.username = "";
