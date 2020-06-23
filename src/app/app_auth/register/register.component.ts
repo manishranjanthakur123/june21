@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service'
 import { User } from '../../models/auth/user'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,17 +9,33 @@ import { User } from '../../models/auth/user'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerUserData: User;
+  public registerUserData: User;
+  public registrationForm: FormGroup;
   confirmPassword: string = "";
   message: string;
 
-  constructor(private _authService: AuthService) { }
-
-  ngOnInit() {
+  constructor(private _fb: FormBuilder,private _authService: AuthService) { 
+    this.createForm();
     this.registerUserData = new User();
   }
 
+  ngOnInit() {
+  }
+
+  createForm(){
+    this.registrationForm = this._fb.group({
+      email:[null, Validators.required],
+      username:[null, Validators.required],
+      password: [null, [Validators.required, Validators.minLength(8)]]
+    });
+  }
+
   registerUser(){
+    if(!this.registrationForm.valid){
+      console.log('Invalid Form');
+      return;
+    }
+    this.registerUserData = Object.assign({}, this.registrationForm.value);
     console.log(this.registerUserData);
     this.message = "";
     this._authService.registerUser(this.registerUserData)

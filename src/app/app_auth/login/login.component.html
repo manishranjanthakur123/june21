@@ -25,21 +25,25 @@
                             <td>
                                 <div><label for="">Email</label> </div>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <div class="user-email"> 
                                     <input type="text" name="userEmail" formControlName="email">
                                 </div>
                             </td>
                             <td>
-                                <div style="color: red;" *ngIf="loginForm.get('email').invalid && ( loginForm.get('email').dirty || loginForm.get('email').touched )"> Name is required</div>
+                                <div style="color: red;" *ngIf="loginForm.get('email').invalid && ( loginForm.get('email').dirty || loginForm.get('email').touched )"> Email is required</div>
                             </td>
                         </tr>
-                        
 
                         <tr>
                             <td>
                                 <div><label for="">Password</label> </div>
                             </td>
+                        </tr>
+
+                        <tr>
                             <td>
                                 <div class="user-password">
                                     <input type="password" name="userpassword" formControlName="password">
@@ -52,11 +56,15 @@
                                 </div>
                             </td>
                         </tr>
+                    <br>
+                        <tr>
+                            <td>
+                                <div><button class="btn btn-dark float-left" [disabled]="!loginForm.valid" type="submit" >Login</button></div>
+                            </td>
+                        </tr>
                         
                     </table>
                     
-                    
-                    <button *ngIf="loginForm.valid" type="submit">Login</button> 
                 </form>
 
                 <div *ngIf="message">{{message}}</div>

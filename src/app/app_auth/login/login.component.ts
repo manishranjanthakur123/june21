@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
+    if(!this.loginForm.valid){
+      console.log('Invalid Form');
+      return;
+    }
     this.loginUserData = Object.assign({}, this.loginForm.value);
     console.log(this.loginUserData);
     this._authService.loginUser(this.loginUserData)
