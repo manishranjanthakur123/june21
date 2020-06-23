@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginUserData: User;
+  public loginUserData: User;
   message: string;
 
   // public loginForm: FormGroup; = new FormGroup({
@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private _fb: FormBuilder, private _authService: AuthService) {
     this.createForm();
+    this.loginUserData = new User();
    }
 
   ngOnInit() {
-    this.loginUserData = new User();
   }
 
   createForm(){
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
+    this.loginUserData = Object.assign({}, this.loginForm.value);
     console.log(this.loginUserData);
     this._authService.loginUser(this.loginUserData)
     .subscribe(
