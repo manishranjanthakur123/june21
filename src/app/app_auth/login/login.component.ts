@@ -41,10 +41,15 @@ export class LoginComponent implements OnInit {
     console.log(this.loginUserData);
     this._authService.loginUser(this.loginUserData)
     .subscribe(
-      res => {console.log(res);
-      this.message = "Successfully loggedIn";},
-      err => {console.log(err);
-      this.message = err.error.errors.error[0];}
+      res => {
+        console.log(res);
+        localStorage.setItem('token', res.user.token)
+        this.message = "Successfully loggedIn";
+      },
+      err => {
+        console.log(err);
+        this.message = err.error.errors.error[0];
+      }
     );
   }
 

@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        localStorage.setItem('token', res.user.token)
         this.message = "Successfully Created Account";
       },
       err => {

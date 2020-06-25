@@ -22,4 +22,16 @@ export class AuthService {
   loginUser(user: User): Observable<any>{
     return this.http.post(this._loginUrl, user);
   }
+
+  loggedIn(){
+    return !!localStorage.getItem('token');
+  } 
+
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
+  logout(){
+    localStorage.removeItem('token')
+  }
 }
