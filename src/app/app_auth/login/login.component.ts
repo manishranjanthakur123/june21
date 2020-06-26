@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service'
 import { User } from '../../models/auth/user'
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   // })
   public loginForm: FormGroup;
 
-  constructor(private _fb: FormBuilder, private _authService: AuthService) {
+  constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) {
     this.createForm();
     this.loginUserData = new User();
    }
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         localStorage.setItem('token', res.user.token)
         this.message = "Successfully loggedIn";
+        this._router.navigate(['/upload']);
       },
       err => {
         console.log(err);
