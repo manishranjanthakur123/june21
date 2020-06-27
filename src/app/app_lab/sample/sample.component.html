@@ -1,4 +1,4 @@
-<h3>Upload your X-ray</h3>
+<h3>Upload your Image</h3>
 <label>
     Title:
     <input type="text" (change)="onTitleChanged($event)"/>
@@ -10,3 +10,6 @@
 </label>
 
 <button (click)="diagnose()">process</button>
+
+<br><br><br>
+<div *ngIf="message"><a href="{{message}}">uploaded here</a></div>

@@ -36,7 +36,7 @@ export class AuthService {
     localStorage.removeItem('token')
   }
 
-  processImage(imageProcessData: any){
+  processImage(imageProcessData: any): Observable<any>{
     return this.http.post(this._diagnoseUrl, imageProcessData);
   }
 }

@@ -25,13 +25,15 @@ export class SampleComponent implements OnInit {
   }
 
   diagnose(){
+    this.message = "";
     const imgProcessData = new FormData();
     imgProcessData.append('title', this.title);
     imgProcessData.append('image', this.image, this.image.name);
     this._authService.processImage(imgProcessData).subscribe(
       res => {
         console.log(res);
-        this.message = "Successfully uploaded";
+        console.log(res.image);
+        this.message = res.image;
       },
       err => {
         console.log(err);
