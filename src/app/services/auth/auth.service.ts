@@ -11,7 +11,8 @@ import { User } from '../../models/auth/user'
 })
 export class AuthService {
   private _registerUrl = "https://manishranjan.pythonanywhere.com/api/account/register";
-  private _loginUrl = "https://manishranjan.pythonanywhere.com/api/account/login";
+  private _loginUrl = "http://127.0.0.1:8000/api/account/login";
+  private _diagnoseUrl = "http://127.0.0.1:8000/api/diagnose/medicalentity/";
 
   constructor(private http: HttpClient) { }
 
@@ -28,10 +29,14 @@ export class AuthService {
   } 
 
   getToken(){
-    return localStorage.getItem('token');
+    return localStorage.getItem('token') ? localStorage.getItem('token') : "";
   }
 
   logout(){
     localStorage.removeItem('token')
+  }
+
+  processImage(imageProcessData: any){
+    return this.http.post(this._diagnoseUrl, imageProcessData);
   }
 }

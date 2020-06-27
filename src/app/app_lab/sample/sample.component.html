@@ -1,1 +1,12 @@
-<p>sample works!</p>
+<h3>Upload your X-ray</h3>
+<label>
+    Title:
+    <input type="text" (change)="onTitleChanged($event)"/>
+</label>
+
+<label>
+    Image:
+    <input type="file" (change)="onImageChanged($event)"/>
+</label>
+
+<button (click)="diagnose()">process</button>
