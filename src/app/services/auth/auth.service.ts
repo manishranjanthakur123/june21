@@ -11,8 +11,8 @@ import { User } from '../../models/auth/user'
 })
 export class AuthService {
   private _registerUrl = "https://manishranjan.pythonanywhere.com/api/account/register";
-  private _loginUrl = "http://127.0.0.1:8000/api/account/login";
-  private _diagnoseUrl = "http://127.0.0.1:8000/api/diagnose/medicalentity/";
+  private _loginUrl = "https://manishranjan.pythonanywhere.com/api/account/login";
+  private _diagnoseUrl = "https://manishranjan.pythonanywhere.com/api/diagnose/medicalentity/";
 
   constructor(private http: HttpClient) { }
 
